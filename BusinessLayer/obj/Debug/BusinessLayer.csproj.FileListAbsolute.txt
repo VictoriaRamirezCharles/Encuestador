@@ -1,0 +1,9 @@
+C:\Users\Victoria\source\repos\Encuestador\BusinessLayer\bin\Debug\BusinessLayer.dll
+C:\Users\Victoria\source\repos\Encuestador\BusinessLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\Victoria\source\repos\Encuestador\BusinessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\Victoria\source\repos\Encuestador\BusinessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Victoria\source\repos\Encuestador\BusinessLayer\obj\Debug\BusinessLayer.csprojAssemblyReference.cache
+C:\Users\Victoria\source\repos\Encuestador\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Victoria\source\repos\Encuestador\BusinessLayer\obj\Debug\BusinessLayer.csproj.CopyComplete
+C:\Users\Victoria\source\repos\Encuestador\BusinessLayer\obj\Debug\BusinessLayer.dll
+C:\Users\Victoria\source\repos\Encuestador\BusinessLayer\obj\Debug\BusinessLayer.pdb
