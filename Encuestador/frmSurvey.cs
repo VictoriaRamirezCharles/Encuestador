@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
 using DataAccessLayer.Models;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -135,6 +136,32 @@ namespace Encuestador
             frmLogin login = new frmLogin();
             this.Hide();
             login.Show();
+        }
+
+        private void aplicarEncuestasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_id <= 0)
+            {
+                MessageBox.Show("Debe Seleccionar la encuesta que desea aplicar", "Notificacion");
+            }
+            else
+            {
+                var entry = Interaction.InputBox("Nombre del Encuestado", "Encuestado", "");
+                if (String.IsNullOrEmpty(entry))
+                {
+                    MessageBox.Show("Debe escribir un nombre para continuar");
+                }
+                else
+                {
+                    frmSurveyed surveyed = new frmSurveyed();
+                    surveyed.surveyed = entry;
+                    surveyed.surveyId = _id;
+                    surveyed.username = username;
+                    this.Hide();
+                    surveyed.Show();
+                }
+               
+            }
         }
     }
 }

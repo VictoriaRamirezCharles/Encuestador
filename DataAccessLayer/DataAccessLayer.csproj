@@ -51,10 +51,12 @@
     <Compile Include="IRepository.cs" />
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Survey.cs" />
+    <Compile Include="Models\Surveyed.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionDatabaseRepository.cs" />
     <Compile Include="SurveyDatabaseRepository.cs" />
+    <Compile Include="SurveyedDatabaseRepository.cs" />
     <Compile Include="UserDataBaseRepository.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
