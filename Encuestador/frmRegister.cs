@@ -80,7 +80,7 @@ namespace Encuestador
             User user = new User(txtName.Text, txtLastName.Text, txtUserName.Text, txtPassword.Text);
             if (txtPassword.Text.Equals(txtRePassword.Text))
             {
-                var exist = _service.Get(txtUserName.Text);
+                var exist = _service.Get(null,txtUserName.Text);
                 if (!exist)
                 {
                     _service.Add(user);

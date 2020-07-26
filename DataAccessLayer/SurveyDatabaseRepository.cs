@@ -28,12 +28,32 @@ namespace DataAccessLayer
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            SqlCommand command = new SqlCommand("delete Tbl_Surveys where id = @id", GetConnection());
+
+            command.Parameters.AddWithValue("@id", id);
+
+
+            return executeDml(command);
         }
 
-        public bool Getting(string name)
+        public bool Getting(string name, string username)
         {
-            throw new NotImplementedException();
+            string command = string.Format("SELECT * FROM Tbl_Surveys WHERE UserName='{0}' and Name='{1}'", username, name);
+            DataSet ds = Get(command);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                string Name = ds.Tables[0].Rows[0]?["Name"].ToString().Trim();
+                var namedba = Name.ToUpper();
+                if (namedba.Equals(name))
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                return false;
+            }
+            return false;
         }
 
         public int GettingId(Survey item)
@@ -51,14 +71,32 @@ namespace DataAccessLayer
 
             return 0;
         }
+
+        public DataTable List(string username)
+        {
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(string.Format("select * from Tbl_Surveys where UserName='{0}'",username), GetConnection());
+
+            return LoadData(sqlDataAdapter);
+        }
+
         public bool Update(Survey item)
         {
-            throw new NotImplementedException();
+            SqlCommand command = new SqlCommand("update Tbl_Surveys set Name = @name, QuestionQuantity = @questionQuantity, UserName = @username where Id = @id", GetConnection());
+
+            command.Parameters.AddWithValue("@id", item.Id);
+            command.Parameters.AddWithValue("@name", item.Name);
+            command.Parameters.AddWithValue("@questionQuantity", item.QuestionQuantity);
+            command.Parameters.AddWithValue("@username", item.UserName);
+          
+
+            return executeDml(command);
         }
 
         public bool validPass(string name, string password)
         {
             throw new NotImplementedException();
         }
+
+     
     }
 }

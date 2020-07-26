@@ -41,8 +41,21 @@ namespace Encuestador
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            var exist = _service.Get(txtUserName.Text);
-            var existPass = _service.validPassWord(txtUserName.Text,txtPassword.Text);
+            valid();
+        }
+
+        private void lnkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmRegister registration = new frmRegister();
+            this.Hide();
+            registration.Show();
+        }
+
+    
+        void valid()
+        {
+            var exist = _service.Get(null, txtUserName.Text);
+            var existPass = _service.validPassWord(txtUserName.Text, txtPassword.Text);
 
             if (exist)
             {
@@ -71,11 +84,12 @@ namespace Encuestador
             }
         }
 
-        private void lnkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
         {
-            frmRegister registration = new frmRegister();
-            this.Hide();
-            registration.Show();
+            if (e.KeyCode == Keys.Enter)
+            {
+                valid();
+            }
         }
     }
 }

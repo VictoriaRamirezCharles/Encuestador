@@ -18,6 +18,9 @@ namespace Encuestador
     public partial class frmCreateSurvey : Form
     {
         public string username;
+        public string quantityToUpdate;
+        public string nameToUpdate;
+        public int _id;
 
         private readonly IService<Survey> _service;
         public frmCreateSurvey()
@@ -33,23 +36,55 @@ namespace Encuestador
         {
      
           this.Text = $"Crear Encuesta --- Usuario {username}";
+            txtName.Text = nameToUpdate;
+            txtQuantity.Text = quantityToUpdate;
         }
 
         private void Add()
         {
             Survey survey = new Survey(txtName.Text, Convert.ToInt32(txtQuantity.Text), username);
-            _service.Add(survey);
-            frmQuestions frmQuestions = new frmQuestions();
-            frmQuestions.SurveyId = _service.GetId(survey);
-            frmQuestions.Quantity = Convert.ToInt32(txtQuantity.Text);
-            this.Hide();
-            frmQuestions.Show();
+            var exist = _service.Get(txtName.Text.ToUpper(), username);
+            if (!exist)
+            {
+                _service.Add(survey);
+                frmQuestions frmQuestions = new frmQuestions();
+                frmQuestions.SurveyId = _service.GetId(survey);
+                frmQuestions.Quantity = Convert.ToInt32(txtQuantity.Text);
+                frmQuestions.userName = username;
+                this.Hide();
+                frmQuestions.Show();
+            }
+            else
+            {
+                MessageBox.Show("Ya tiene una encuesta con ese nombre, escriba uno diferente");
+            }
+          
 
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            Add();
+            if (_id == 0)
+            {
+                Add();
+            }
+            else
+            {
+                Update();
+            }
+        }
+
+        public void Update()
+        {
+
+            Survey survey = new Survey(txtName.Text, Convert.ToInt32(txtQuantity.Text), username);
+            survey.Id = _id;
+            _service.Update(survey);
+            _id = 0;
+            frmSurvey frmSurvey = new frmSurvey();
+            frmSurvey.username = username;
+            this.Hide();
+            frmSurvey.Show();
         }
     }
 }

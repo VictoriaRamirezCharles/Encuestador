@@ -10,15 +10,15 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer
 {
-    public class SurveyService : IService<Survey>
+    public class QuestionService : IService<Question>
     {
-        private readonly IRepository<Survey> _repository;
-        public SurveyService(SqlConnection connection)
+        private readonly IRepository<Question> _repository;
+        public QuestionService(SqlConnection connection)
         {
-            _repository = new SurveyDatabaseRepository(connection);
+            _repository = new QuestionDatabaseRepository(connection);
 
         }
-        public void Add(Survey item)
+        public void Add(Question item)
         {
             _repository.Add(item);
         }
@@ -28,9 +28,9 @@ namespace BusinessLayer
             _repository.Delete(index);
         }
 
-        public bool Get(string name, string username)
+        public bool Get(string suveyId, string cantidad)
         {
-            return _repository.Getting(name, username);
+            return _repository.Getting(suveyId, cantidad);
         }
 
         public DataTable GetAll(string username)
@@ -38,12 +38,12 @@ namespace BusinessLayer
             return _repository.List(username);
         }
 
-        public int GetId(Survey item)
+        public int GetId(Question item)
         {
-           return _repository.GettingId(item);
+            throw new NotImplementedException();
         }
 
-        public void Update(Survey item)
+        public void Update(Question item)
         {
             _repository.Update(item);
         }

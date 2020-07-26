@@ -60,9 +60,30 @@ namespace DataAccessLayer
                 Console.WriteLine(e);
                 throw;
             }
+        }
+
+        public DataTable LoadData(SqlDataAdapter query)
+        {
+            try
+            {
+                DataTable data = new DataTable();
+                _connection.Open();
+
+                query.Fill(data);
+
+                _connection.Close();
+
+                return data;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
 
 
         }
+
     }
 
 }

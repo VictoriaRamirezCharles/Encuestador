@@ -1,6 +1,7 @@
 ﻿using BusinessLayer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -26,10 +27,10 @@ namespace DataAccessLayer
             _repository.Delete(index);
         }
 
-        public bool Get(string name)
+        public bool Get(string name, string username = null)
         {
            
-           return _repository.Getting(name);
+           return _repository.Getting(username);
         }
 
         public bool validPassWord(string name, string password)
@@ -44,6 +45,11 @@ namespace DataAccessLayer
         }
 
         public int GetId(User item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DataTable GetAll(string username)
         {
             throw new NotImplementedException();
         }

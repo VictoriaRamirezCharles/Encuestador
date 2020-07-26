@@ -34,7 +34,7 @@ namespace DataAccessLayer
 
      
 
-        public bool Getting(string name)
+        public bool Getting(string name, string username)
         {
 
             string command = string.Format("SELECT * FROM Tbl_Users WHERE USERNAME='{0}'", name);
@@ -80,6 +80,11 @@ namespace DataAccessLayer
         }
 
         public int GettingId(User item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DataTable List(string username)
         {
             throw new NotImplementedException();
         }
