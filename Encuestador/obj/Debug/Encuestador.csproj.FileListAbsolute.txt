@@ -17,6 +17,5 @@ C:\Users\Victoria\source\repos\Encuestador\Encuestador\obj\Debug\Encuestador.exe
 C:\Users\Victoria\source\repos\Encuestador\Encuestador\obj\Debug\Encuestador.pdb
 C:\Users\Victoria\source\repos\Encuestador\Encuestador\obj\Debug\Encuestador.frmCreateSurvey.resources
 C:\Users\Victoria\source\repos\Encuestador\Encuestador\obj\Debug\Encuestador.frmQuestions.resources
-C:\Users\Victoria\source\repos\Encuestador\Encuestador\obj\Debug\Encuestador.UpdateSurvey.resources
 C:\Users\Victoria\source\repos\Encuestador\Encuestador\obj\Debug\Encuestador.frmSurveyed.resources
 C:\Users\Victoria\source\repos\Encuestador\Encuestador\obj\Debug\Encuestador.ShowSurveys.resources

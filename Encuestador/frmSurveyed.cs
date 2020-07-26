@@ -94,5 +94,18 @@ namespace Encuestador
    
             }
         }
+
+        private void volverAlMenuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSurvey survey = new frmSurvey();
+            survey.username = username;
+            this.Hide();
+            survey.Show();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

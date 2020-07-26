@@ -98,12 +98,6 @@
     <Compile Include="ShowSurveys.Designer.cs">
       <DependentUpon>ShowSurveys.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpdateSurvey.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UpdateSurvey.Designer.cs">
-      <DependentUpon>UpdateSurvey.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="frmCreateSurvey.resx">
       <DependentUpon>frmCreateSurvey.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,9 +128,6 @@
     </Compile>
     <EmbeddedResource Include="ShowSurveys.resx">
       <DependentUpon>ShowSurveys.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UpdateSurvey.resx">
-      <DependentUpon>UpdateSurvey.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

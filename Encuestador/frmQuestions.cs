@@ -132,5 +132,18 @@ namespace Encuestador
         {
             Delete();
         }
+
+        private void volverAlMenuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSurvey survey = new frmSurvey();
+            survey.username = userName;
+            this.Hide();
+            survey.Show();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -42,23 +42,28 @@ namespace Encuestador
 
         private void Add()
         {
-            Survey survey = new Survey(txtName.Text, Convert.ToInt32(txtQuantity.Text), username);
-            var exist = _service.Get(txtName.Text.ToUpper(), username);
-            if (!exist)
+            try
             {
-                _service.Add(survey);
-                frmQuestions frmQuestions = new frmQuestions();
-                frmQuestions.SurveyId = _service.GetId(survey);
-                frmQuestions.Quantity = Convert.ToInt32(txtQuantity.Text);
-                frmQuestions.userName = username;
-                this.Hide();
-                frmQuestions.Show();
-            }
-            else
+                Survey survey = new Survey(txtName.Text, Convert.ToInt32(txtQuantity.Text), username);
+                var exist = _service.Get(txtName.Text.ToUpper(), username);
+                if (!exist)
+                {
+                    _service.Add(survey);
+                    frmQuestions frmQuestions = new frmQuestions();
+                    frmQuestions.SurveyId = _service.GetId(survey);
+                    frmQuestions.Quantity = Convert.ToInt32(txtQuantity.Text);
+                    frmQuestions.userName = username;
+                    this.Hide();
+                    frmQuestions.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Ya tiene una encuesta con ese nombre, escriba uno diferente");
+                }
+            }catch(Exception e)
             {
-                MessageBox.Show("Ya tiene una encuesta con ese nombre, escriba uno diferente");
+                MessageBox.Show("Ha ocurrido un error, verifique los valores introducidos sean correctos");
             }
-          
 
         }
 
@@ -85,6 +90,19 @@ namespace Encuestador
             frmSurvey.username = username;
             this.Hide();
             frmSurvey.Show();
+        }
+
+        private void volverAlMenuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSurvey survey = new frmSurvey();
+            survey.username = username;
+            this.Hide();
+            survey.Show();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
