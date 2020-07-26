@@ -44,7 +44,7 @@ namespace Encuestador
         }
         public void Add()
         {
-            Surveyed surveyeds = new Surveyed(surveyed, _id, username, txtAnswer.Text);
+            Surveyed surveyeds = new Surveyed(surveyed, _id, username, txtAnswer.Text, surveyId);
             if (String.IsNullOrEmpty(txtAnswer.Text))
             {
                 MessageBox.Show("No puede enviar una respuesta vacia.");

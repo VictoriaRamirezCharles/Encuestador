@@ -163,5 +163,20 @@ namespace Encuestador
                
             }
         }
+
+        private void visualizarEncuestasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_id <= 0)
+            {
+                MessageBox.Show("Debe Seleccionar la encuesta que desea Visualizar", "Notificacion");
+            }
+            else
+            {
+                ShowSurveys showSurveys = new ShowSurveys();
+                showSurveys.surveyId = _id;
+                this.Hide();
+                showSurveys.Show();
+            }
+        }
     }
 }

@@ -16,6 +16,9 @@ namespace DataAccessLayer
         int GettingId(T item);
         bool validPass(string name, string password);
         DataTable List(string username);
+        DataTable GetAllNames(string username);
+        DataTable GetAllAnwers(string username);
+        
 
     }
 }

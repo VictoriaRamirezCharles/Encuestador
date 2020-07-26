@@ -53,5 +53,15 @@ namespace DataAccessLayer
         {
             throw new NotImplementedException();
         }
+
+        public DataTable GetAllNames(string username)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DataTable GetAllAnwers(string username)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

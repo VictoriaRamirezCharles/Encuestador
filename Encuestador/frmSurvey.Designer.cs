@@ -78,7 +78,8 @@
             // 
             this.visualizarEncuestasToolStripMenuItem.Name = "visualizarEncuestasToolStripMenuItem";
             this.visualizarEncuestasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.visualizarEncuestasToolStripMenuItem.Text = "Visualizar Encuestas";
+            this.visualizarEncuestasToolStripMenuItem.Text = "Visualizar Encuesta";
+            this.visualizarEncuestasToolStripMenuItem.Click += new System.EventHandler(this.visualizarEncuestasToolStripMenuItem_Click);
             // 
             // aplicarEncuestasToolStripMenuItem
             // 

@@ -35,6 +35,16 @@ namespace DataAccessLayer
             return executeDml(command);
         }
 
+        public DataTable GetAllAnwers(string username)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DataTable GetAllNames(string username)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Getting(string suveyId, string cantidad)
         {
             string command = string.Format("SELECT count(Question) as quantity FROM Tbl_Questions WHERE SurveyId='{0}'", Convert.ToInt32(suveyId));

@@ -16,12 +16,13 @@ namespace DataAccessLayer
         }
         public bool Add(Surveyed item)
         {
-            SqlCommand command = new SqlCommand("insert into Tbl_surveyed(QuestionId,Name,Username,Answer) values(@questionId,@name,@username,@answer)", GetConnection());
+            SqlCommand command = new SqlCommand("insert into Tbl_surveyed(QuestionId,Name,Username,Answer,SurveyId) values(@questionId,@name,@username,@answer,@surveyId)", GetConnection());
 
             command.Parameters.AddWithValue("@questionId", item.QuestionId);
             command.Parameters.AddWithValue("@name", item.Name);
             command.Parameters.AddWithValue("@username", item.UserName);
             command.Parameters.AddWithValue("@answer", item.Answer);
+            command.Parameters.AddWithValue("@surveyId", item.SurveyId);
 
             return executeDml(command);
         }
@@ -29,6 +30,20 @@ namespace DataAccessLayer
         public bool Delete(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public DataTable GetAllAnwers(string name)
+        {
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(string.Format("select QuestionId, Answer from Tbl_surveyed where Name='{0}'", name), GetConnection());
+
+            return LoadData(sqlDataAdapter);
+        }
+
+        public DataTable GetAllNames(string SurveyId)
+        {
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(string.Format("select distinct Name from Tbl_surveyed where SurveyId='{0}'", Convert.ToInt32(SurveyId)), GetConnection());
+
+            return LoadData(sqlDataAdapter);
         }
 
         public bool Getting(string name, string username = null)

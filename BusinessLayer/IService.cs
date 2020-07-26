@@ -16,6 +16,8 @@ namespace BusinessLayer
         int GetId(T item);
         bool validPassWord(string name, string password);
         DataTable GetAll(string username);
+        DataTable GetAllNames(string username);
+        DataTable GetAllAnwers(string username);
 
 
     }

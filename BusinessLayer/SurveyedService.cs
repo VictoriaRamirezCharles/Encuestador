@@ -38,6 +38,16 @@ namespace BusinessLayer
             return _repository.List(username);
         }
 
+        public DataTable GetAllAnwers(string username)
+        {
+            return _repository.GetAllAnwers(username);
+        }
+
+        public DataTable GetAllNames(string username)
+        {
+            return _repository.GetAllNames(username);
+        }
+
         public int GetId(Surveyed item)
         {
             throw new NotImplementedException();

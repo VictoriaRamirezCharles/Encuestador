@@ -36,6 +36,16 @@ namespace DataAccessLayer
             return executeDml(command);
         }
 
+        public DataTable GetAllAnwers(string username)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DataTable GetAllNames(string username)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Getting(string name, string username)
         {
             string command = string.Format("SELECT * FROM Tbl_Surveys WHERE UserName='{0}' and Name='{1}'", username, name);
